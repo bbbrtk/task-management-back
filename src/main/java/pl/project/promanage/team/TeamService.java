@@ -4,10 +4,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 @Service
-public class CompanyService {
+public class TeamService {
 
     @Autowired
-    private CompanyRepository companyRepository;
+    private TeamRepository teamRepository;
 
 
 }

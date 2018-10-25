@@ -1,6 +1,7 @@
 package pl.project.promanage.user;
 
 import org.springframework.format.annotation.DateTimeFormat;
+import pl.project.promanage.team.Team;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -9,7 +10,7 @@ import javax.persistence.Id;
 import java.util.Date;
 
 @Entity
-public class Company {
+public class User {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -17,27 +18,15 @@ public class Company {
 
     private String name;
 
-    private String country;
+    private Team myTeam;
 
-    private String location;
-
-    @DateTimeFormat(pattern = "dd/MM/yyyy")
-    private Date dateOfEst;
-
-
-    public Company(String name, String country, String location, Date dateOfEst) {
+    public User(String name, Team myTeam) {
         this.name = name;
-        this.country = country;
-        this.location = location;
-        this.dateOfEst = dateOfEst;
+        this.myTeam = myTeam;
     }
 
     public Long getId() {
         return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
     }
 
     public String getName() {
@@ -48,27 +37,11 @@ public class Company {
         this.name = name;
     }
 
-    public String getCountry() {
-        return country;
+    public Team getMyTeam() {
+        return myTeam;
     }
 
-    public void setCountry(String country) {
-        this.country = country;
-    }
-
-    public String getLocation() {
-        return location;
-    }
-
-    public void setLocation(String location) {
-        this.location = location;
-    }
-
-    public Date getDateOfEst() {
-        return dateOfEst;
-    }
-
-    public void setDateOfEst(Date dateOfEst) {
-        this.dateOfEst = dateOfEst;
+    public void setMyTeam(Team myTeam) {
+        this.myTeam = myTeam;
     }
 }

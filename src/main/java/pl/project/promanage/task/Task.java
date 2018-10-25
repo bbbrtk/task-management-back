@@ -1,15 +1,15 @@
 package pl.project.promanage.task;
 
-import org.springframework.format.annotation.DateTimeFormat;
+import pl.project.promanage.project.Project;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import java.util.Date;
+
 
 @Entity
-public class Company {
+public class Task {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -17,27 +17,21 @@ public class Company {
 
     private String name;
 
-    private String country;
+    private float state;
 
-    private String location;
+    private Project myProject;
 
-    @DateTimeFormat(pattern = "dd/MM/yyyy")
-    private Date dateOfEst;
+    private String attachment;
 
-
-    public Company(String name, String country, String location, Date dateOfEst) {
+    public Task(String name, float state, Project myProject, String attachment) {
         this.name = name;
-        this.country = country;
-        this.location = location;
-        this.dateOfEst = dateOfEst;
+        this.state = state;
+        this.myProject = myProject;
+        this.attachment = attachment;
     }
 
     public Long getId() {
         return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
     }
 
     public String getName() {
@@ -48,27 +42,27 @@ public class Company {
         this.name = name;
     }
 
-    public String getCountry() {
-        return country;
+    public float getState() {
+        return state;
     }
 
-    public void setCountry(String country) {
-        this.country = country;
+    public void setState(float state) {
+        this.state = state;
     }
 
-    public String getLocation() {
-        return location;
+    public Project getMyProject() {
+        return myProject;
     }
 
-    public void setLocation(String location) {
-        this.location = location;
+    public void setMyProject(Project myProject) {
+        this.myProject = myProject;
     }
 
-    public Date getDateOfEst() {
-        return dateOfEst;
+    public String getAttachment() {
+        return attachment;
     }
 
-    public void setDateOfEst(Date dateOfEst) {
-        this.dateOfEst = dateOfEst;
+    public void setAttachment(String attachment) {
+        this.attachment = attachment;
     }
 }

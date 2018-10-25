@@ -1,4 +1,4 @@
-package pl.project.promanage.client;
+package pl.project.promanage.company;
 
 import org.springframework.format.annotation.DateTimeFormat;
 
@@ -9,7 +9,7 @@ import javax.persistence.Id;
 import java.util.Date;
 
 @Entity
-public class Client {
+public class Company {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -17,22 +17,19 @@ public class Client {
 
     private String name;
 
-    private String NIP;
+    private String country;
 
-    private String description;
+    private String location;
 
     @DateTimeFormat(pattern = "dd/MM/yyyy")
     private Date dateOfEst;
 
-    private float asset;
 
-
-    public Client(String name, String NIP, String description, Date dateOfEst, float asset) {
+    public Company(String name, String country, String location, Date dateOfEst) {
         this.name = name;
-        this.NIP = NIP;
-        this.description = description;
+        this.country = country;
+        this.location = location;
         this.dateOfEst = dateOfEst;
-        this.asset = asset;
     }
 
     public Long getId() {
@@ -47,20 +44,20 @@ public class Client {
         this.name = name;
     }
 
-    public String getNIP() {
-        return NIP;
+    public String getCountry() {
+        return country;
     }
 
-    public void setNIP(String NIP) {
-        this.NIP = NIP;
+    public void setCountry(String country) {
+        this.country = country;
     }
 
-    public String getDescription() {
-        return description;
+    public String getLocation() {
+        return location;
     }
 
-    public void setDescription(String description) {
-        this.description = description;
+    public void setLocation(String location) {
+        this.location = location;
     }
 
     public Date getDateOfEst() {
@@ -69,13 +66,5 @@ public class Client {
 
     public void setDateOfEst(Date dateOfEst) {
         this.dateOfEst = dateOfEst;
-    }
-
-    public float getAsset() {
-        return asset;
-    }
-
-    public void setAsset(float asset) {
-        this.asset = asset;
     }
 }

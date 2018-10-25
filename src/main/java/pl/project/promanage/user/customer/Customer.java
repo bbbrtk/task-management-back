@@ -1,47 +1,51 @@
-package pl.project.promanage.user;
+package pl.project.promanage.user.customer;
 
-import org.springframework.format.annotation.DateTimeFormat;
+import pl.project.promanage.client.Client;
 import pl.project.promanage.team.Team;
+import pl.project.promanage.user.User;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import java.util.Date;
 
 @Entity
-public class User {
+public class Customer extends User {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private Long id;
+    private String type;
 
-    private String name;
+    private String info;
 
-    private Team myTeam;
+    private Client myClient;
 
-    public User(String name, Team myTeam) {
-        this.name = name;
-        this.myTeam = myTeam;
+    public Customer(String name, Team myTeam, String type, String info, Client myClient) {
+        super(name, myTeam);
+        this.type = type;
+        this.info = info;
+        this.myClient = myClient;
     }
 
-    public Long getId() {
-        return id;
+    public String getType() {
+        return type;
     }
 
-    public String getName() {
-        return name;
+    public void setType(String type) {
+        this.type = type;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public String getInfo() {
+        return info;
     }
 
-    public Team getMyTeam() {
-        return myTeam;
+    public void setInfo(String info) {
+        this.info = info;
     }
 
-    public void setMyTeam(Team myTeam) {
-        this.myTeam = myTeam;
+    public Client getMyClient() {
+        return myClient;
+    }
+
+    public void setMyClient(Client myClient) {
+        this.myClient = myClient;
     }
 }

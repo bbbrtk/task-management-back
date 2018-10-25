@@ -1,7 +1,7 @@
 package pl.project.promanage.user;
 
 
-public class CompanyController {
+public class UserController {
 
 
 

@@ -1,7 +1,7 @@
 package pl.project.promanage.company;
 
 
-public class ClientController {
+public class CompanyController {
 
 
 

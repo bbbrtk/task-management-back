@@ -1,28 +1,29 @@
-package pl.project.promanage.user.customer;
+package pl.project.promanage.user.worker.developer;
 
 import pl.project.promanage.client.Client;
+import pl.project.promanage.task.Task;
 import pl.project.promanage.team.Team;
 import pl.project.promanage.user.User;
+import pl.project.promanage.user.worker.Worker;
+import pl.project.promanage.user.worker.manager.Manager;
 
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
 
 @Entity
-public class Customer extends User {
+public class Developer extends Worker {
 
     private String type;
 
     private String info;
 
-    private Client myClient;
+    private Manager myManager;
 
-    public Customer(String name, Team myTeam, String type, String info, Client myClient) {
-        super(name, myTeam);
+    public Developer(String name, Team myTeam, String position,
+                     float experience, Task myTask, String type, String info) {
+        super(name, myTeam, position, experience, myTask);
         this.type = type;
         this.info = info;
-        this.myClient = myClient;
+        this.myManager = myManager;
     }
 
     public String getType() {
@@ -41,11 +42,11 @@ public class Customer extends User {
         this.info = info;
     }
 
-    public Client getMyClient() {
-        return myClient;
+    public Manager getMyManager() {
+        return myManager;
     }
 
-    public void setMyClient(Client myClient) {
-        this.myClient = myClient;
+    public void setMyManager(Manager myManager) {
+        this.myManager = myManager;
     }
 }

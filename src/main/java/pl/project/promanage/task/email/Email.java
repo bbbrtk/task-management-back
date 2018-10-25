@@ -1,32 +1,25 @@
-package pl.project.promanage.task.meeting;
+package pl.project.promanage.task.email;
 
 import pl.project.promanage.project.Project;
 import pl.project.promanage.task.Task;
 
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
 
 @Entity
-public class Meeting extends Task {
-
-    private String place;
+public class Email extends Task {
 
     private String topic;
 
-    public Meeting(String name, float state, Project myProject, String attachment, String place, String topic) {
+    private String text;
+
+    // ?
+    // private User fromWho;
+
+
+    public Email(String name, float state, Project myProject, String attachment, String topic, String text) {
         super(name, state, myProject, attachment);
-        this.place = place;
         this.topic = topic;
-    }
-
-    public String getPlace() {
-        return place;
-    }
-
-    public void setPlace(String place) {
-        this.place = place;
+        this.text = text;
     }
 
     public String getTopic() {
@@ -35,5 +28,13 @@ public class Meeting extends Task {
 
     public void setTopic(String topic) {
         this.topic = topic;
+    }
+
+    public String getText() {
+        return text;
+    }
+
+    public void setText(String text) {
+        this.text = text;
     }
 }

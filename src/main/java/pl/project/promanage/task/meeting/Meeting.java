@@ -1,69 +1,39 @@
-package pl.project.promanage.task;
+package pl.project.promanage.task.meeting;
 
-import org.springframework.format.annotation.DateTimeFormat;
 import pl.project.promanage.project.Project;
+import pl.project.promanage.task.Task;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import java.util.Date;
 
 @Entity
-public class Task {
+public class Meeting extends Task {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private Long id;
+    private String place;
 
-    private String name;
+    private String topic;
 
-    private float state;
-
-    private Project myProject;
-
-    private String attachment;
-
-    public Task(String name, float state, Project myProject, String attachment) {
-        this.name = name;
-        this.state = state;
-        this.myProject = myProject;
-        this.attachment = attachment;
+    public Meeting(String name, float state, Project myProject, String attachment, String place, String topic) {
+        super(name, state, myProject, attachment);
+        this.place = place;
+        this.topic = topic;
     }
 
-    public Long getId() {
-        return id;
+    public String getPlace() {
+        return place;
     }
 
-    public String getName() {
-        return name;
+    public void setPlace(String place) {
+        this.place = place;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public String getTopic() {
+        return topic;
     }
 
-    public float getState() {
-        return state;
-    }
-
-    public void setState(float state) {
-        this.state = state;
-    }
-
-    public Project getMyProject() {
-        return myProject;
-    }
-
-    public void setMyProject(Project myProject) {
-        this.myProject = myProject;
-    }
-
-    public String getAttachment() {
-        return attachment;
-    }
-
-    public void setAttachment(String attachment) {
-        this.attachment = attachment;
+    public void setTopic(String topic) {
+        this.topic = topic;
     }
 }

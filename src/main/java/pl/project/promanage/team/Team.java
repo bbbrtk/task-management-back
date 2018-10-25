@@ -1,6 +1,7 @@
 package pl.project.promanage.team;
 
 import org.springframework.format.annotation.DateTimeFormat;
+import pl.project.promanage.company.Company;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -9,7 +10,7 @@ import javax.persistence.Id;
 import java.util.Date;
 
 @Entity
-public class Company {
+public class Team {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -17,27 +18,18 @@ public class Company {
 
     private String name;
 
-    private String country;
+    private Company myCompany;
 
-    private String location;
+    private float capacity;
 
-    @DateTimeFormat(pattern = "dd/MM/yyyy")
-    private Date dateOfEst;
-
-
-    public Company(String name, String country, String location, Date dateOfEst) {
+    public Team(String name, Company myCompany, float capacity) {
         this.name = name;
-        this.country = country;
-        this.location = location;
-        this.dateOfEst = dateOfEst;
+        this.myCompany = myCompany;
+        this.capacity = capacity;
     }
 
     public Long getId() {
         return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
     }
 
     public String getName() {
@@ -48,27 +40,19 @@ public class Company {
         this.name = name;
     }
 
-    public String getCountry() {
-        return country;
+    public Company getMyCompany() {
+        return myCompany;
     }
 
-    public void setCountry(String country) {
-        this.country = country;
+    public void setMyCompany(Company myCompany) {
+        this.myCompany = myCompany;
     }
 
-    public String getLocation() {
-        return location;
+    public float getCapacity() {
+        return capacity;
     }
 
-    public void setLocation(String location) {
-        this.location = location;
-    }
-
-    public Date getDateOfEst() {
-        return dateOfEst;
-    }
-
-    public void setDateOfEst(Date dateOfEst) {
-        this.dateOfEst = dateOfEst;
+    public void setCapacity(float capacity) {
+        this.capacity = capacity;
     }
 }

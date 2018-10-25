@@ -1,39 +1,36 @@
-package pl.project.promanage.task.meeting;
+package pl.project.promanage.task.testdriving;
 
 import pl.project.promanage.project.Project;
 import pl.project.promanage.task.Task;
 
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
 
 @Entity
-public class Meeting extends Task {
+public class TestDriving extends Task {
 
-    private String place;
+    private float testScore;
 
-    private String topic;
+    private String description;
 
-    public Meeting(String name, float state, Project myProject, String attachment, String place, String topic) {
+    public TestDriving(String name, float state, Project myProject, String attachment, float testScore, String description) {
         super(name, state, myProject, attachment);
-        this.place = place;
-        this.topic = topic;
+        this.testScore = testScore;
+        this.description = description;
     }
 
-    public String getPlace() {
-        return place;
+    public float getTestScore() {
+        return testScore;
     }
 
-    public void setPlace(String place) {
-        this.place = place;
+    public void setTestScore(float testScore) {
+        this.testScore = testScore;
     }
 
-    public String getTopic() {
-        return topic;
+    public String getDescription() {
+        return description;
     }
 
-    public void setTopic(String topic) {
-        this.topic = topic;
+    public void setDescription(String description) {
+        this.description = description;
     }
 }

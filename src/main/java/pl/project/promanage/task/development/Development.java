@@ -1,39 +1,38 @@
-package pl.project.promanage.task.meeting;
+package pl.project.promanage.task.development;
 
 import pl.project.promanage.project.Project;
 import pl.project.promanage.task.Task;
 
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
 
 @Entity
-public class Meeting extends Task {
+public class Development extends Task {
 
-    private String place;
+    private String connectedTo;
 
-    private String topic;
+    private String description;
 
-    public Meeting(String name, float state, Project myProject, String attachment, String place, String topic) {
+    public Development(String name, float state, Project myProject, String attachment, String connectedTo, String description) {
         super(name, state, myProject, attachment);
-        this.place = place;
-        this.topic = topic;
+        this.connectedTo = connectedTo;
+        this.description = description;
     }
 
-    public String getPlace() {
-        return place;
+    public String getConnectedTo() {
+        return connectedTo;
     }
 
-    public void setPlace(String place) {
-        this.place = place;
+    public void setConnectedTo(String connectedTo) {
+        this.connectedTo = connectedTo;
     }
 
-    public String getTopic() {
-        return topic;
+    public String getDescription() {
+        return description;
     }
 
-    public void setTopic(String topic) {
-        this.topic = topic;
+    public void setDescription(String description) {
+        this.description = description;
     }
 }
+
+

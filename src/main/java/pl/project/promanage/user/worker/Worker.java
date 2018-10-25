@@ -1,47 +1,50 @@
-package pl.project.promanage.user;
+package pl.project.promanage.user.worker;
 
-import org.springframework.format.annotation.DateTimeFormat;
+import pl.project.promanage.task.Task;
 import pl.project.promanage.team.Team;
+import pl.project.promanage.user.User;
 
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import java.util.Date;
 
 @Entity
-public class User {
+public class Worker extends User {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private Long id;
+    private String position;
 
-    private String name;
+    private float experience;
 
-    private Team myTeam;
+    private Task myTask;
+    // or
+    // private List<Task> myTasks;
 
-    public User(String name, Team myTeam) {
-        this.name = name;
-        this.myTeam = myTeam;
+    public Worker(String name, Team myTeam, String position, float experience, Task myTask) {
+        super(name, myTeam);
+        this.position = position;
+        this.experience = experience;
+        this.myTask = myTask;
     }
 
-    public Long getId() {
-        return id;
+    public String getPosition() {
+        return position;
     }
 
-    public String getName() {
-        return name;
+    public void setPosition(String position) {
+        this.position = position;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public float getExperience() {
+        return experience;
     }
 
-    public Team getMyTeam() {
-        return myTeam;
+    public void setExperience(float experience) {
+        this.experience = experience;
     }
 
-    public void setMyTeam(Team myTeam) {
-        this.myTeam = myTeam;
+    public Task getMyTask() {
+        return myTask;
+    }
+
+    public void setMyTask(Task myTask) {
+        this.myTask = myTask;
     }
 }

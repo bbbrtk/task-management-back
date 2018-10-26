@@ -13,7 +13,7 @@ public class Task {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private Long id;
+    private String id;
 
     private String name;
 
@@ -30,7 +30,7 @@ public class Task {
         this.attachment = attachment;
     }
 
-    public Long getId() {
+    public String getId() {
         return id;
     }
 

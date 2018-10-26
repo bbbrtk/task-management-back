@@ -14,7 +14,7 @@ public class User {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private Long id;
+    private String id;
 
     private String name;
 
@@ -25,7 +25,7 @@ public class User {
         this.myTeam = myTeam;
     }
 
-    public Long getId() {
+    public String getId() {
         return id;
     }
 

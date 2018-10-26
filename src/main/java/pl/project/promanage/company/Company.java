@@ -13,7 +13,7 @@ public class Company {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private Long id;
+    private String id;
 
     private String name;
 
@@ -32,7 +32,7 @@ public class Company {
         this.dateOfEst = dateOfEst;
     }
 
-    public Long getId() {
+    public String getId() {
         return id;
     }
 

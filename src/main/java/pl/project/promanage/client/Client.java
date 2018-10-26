@@ -13,7 +13,7 @@ public class Client {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private Long id;
+    private String id;
 
     private String name;
 
@@ -35,7 +35,7 @@ public class Client {
         this.asset = asset;
     }
 
-    public Long getId() {
+    public String getId() {
         return id;
     }
 

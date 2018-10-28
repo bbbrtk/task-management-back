@@ -1,9 +1,11 @@
 package pl.project.promanage.client;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 import org.springframework.stereotype.Service;
 
 @Service
+@EnableJpaRepositories(basePackages="pl.project.promanage.client", entityManagerFactoryRef="emf")
 public class ClientService {
 
     @Autowired

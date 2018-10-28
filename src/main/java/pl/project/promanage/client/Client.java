@@ -2,28 +2,36 @@ package pl.project.promanage.client;
 
 import org.springframework.format.annotation.DateTimeFormat;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.util.Date;
 
 @Entity
+@Table(name="CLIENTS")
 public class Client {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
+<<<<<<< Updated upstream
     private String id;
+=======
+    @Column(name="id")
+    private Long id;
+>>>>>>> Stashed changes
 
+    @Column(name="name")
     private String name;
 
+    @Column(name="nip")
     private String NIP;
 
+    @Column(name="desc")
     private String description;
 
+    @Column(name="date")
     @DateTimeFormat(pattern = "dd/MM/yyyy")
     private Date dateOfEst;
 
+    @Column(name="asset")
     private float asset;
 
 

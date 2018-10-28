@@ -5,7 +5,7 @@ import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 import org.springframework.stereotype.Service;
 
 @Service
-@EnableJpaRepositories(basePackages="pl.project.promanage.client", entityManagerFactoryRef="emf")
+@EnableJpaRepositories(basePackages="pl.project.promanage")
 public class ClientService {
 
     @Autowired

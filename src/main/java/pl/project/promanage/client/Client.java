@@ -6,44 +6,30 @@ import javax.persistence.*;
 import java.util.Date;
 
 @Entity
-@Table(name="CLIENTS")
 public class Client {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-<<<<<<< Updated upstream
-    private String id;
-=======
-    @Column(name="id")
-    private Long id;
->>>>>>> Stashed changes
 
-    @Column(name="name")
+    private Long id;
+
     private String name;
 
-    @Column(name="nip")
     private String NIP;
 
-    @Column(name="desc")
     private String description;
 
-    @Column(name="date")
     @DateTimeFormat(pattern = "dd/MM/yyyy")
     private Date dateOfEst;
 
-    @Column(name="asset")
     private float asset;
 
 
-    public Client(String name, String NIP, String description, Date dateOfEst, float asset) {
-        this.name = name;
-        this.NIP = NIP;
-        this.description = description;
-        this.dateOfEst = dateOfEst;
-        this.asset = asset;
+    public Client() {
+
     }
 
-    public String getId() {
+    public Long getId() {
         return id;
     }
 

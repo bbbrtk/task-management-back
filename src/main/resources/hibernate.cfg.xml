@@ -21,6 +21,7 @@
 
 
         <mapping class="pl.project.promanage.client.Client"/>
+        <mapping class="pl.project.promanage.client.ClientService"/>
 
     </session-factory>
 

@@ -1,10 +1,14 @@
 package pl.project.promanage.user.worker;
 
+import pl.project.promanage.project.Project;
 import pl.project.promanage.task.Task;
 import pl.project.promanage.team.Team;
 import pl.project.promanage.user.User;
 
 import javax.persistence.Entity;
+import javax.persistence.ManyToMany;
+import javax.persistence.ManyToOne;
+import java.util.Set;
 
 @Entity
 public class Worker extends User {
@@ -13,15 +17,20 @@ public class Worker extends User {
 
     private float experience;
 
-    private Task myTask;
+    @ManyToOne
+    private Team myTeam;
     // or
     // private List<Task> myTasks;
 
-    public Worker(String name, Team myTeam, String position, float experience, Task myTask) {
-        super(name, myTeam);
+    @ManyToMany(mappedBy = "workers")
+    private Set<Project> projects;
+
+    public Worker(String name, String position, float experience, Team myTeam, Set<Project> projects) {
+        super(name);
         this.position = position;
         this.experience = experience;
-        this.myTask = myTask;
+        this.myTeam = myTeam;
+        this.projects = projects;
     }
 
     public String getPosition() {
@@ -40,11 +49,19 @@ public class Worker extends User {
         this.experience = experience;
     }
 
-    public Task getMyTask() {
-        return myTask;
+    public Team getMyTeam() {
+        return myTeam;
     }
 
-    public void setMyTask(Task myTask) {
-        this.myTask = myTask;
+    public void setMyTeam(Team myTeam) {
+        this.myTeam = myTeam;
+    }
+
+    public Set<Project> getProjects() {
+        return projects;
+    }
+
+    public void setProjects(Set<Project> projects) {
+        this.projects = projects;
     }
 }

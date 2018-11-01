@@ -1,6 +1,7 @@
 package pl.project.promanage.user.worker.developer;
 
 import pl.project.promanage.client.Client;
+import pl.project.promanage.project.Project;
 import pl.project.promanage.task.Task;
 import pl.project.promanage.team.Team;
 import pl.project.promanage.user.User;
@@ -8,6 +9,7 @@ import pl.project.promanage.user.worker.Worker;
 import pl.project.promanage.user.worker.manager.Manager;
 
 import javax.persistence.Entity;
+import java.util.Set;
 
 @Entity
 public class Developer extends Worker {
@@ -16,14 +18,10 @@ public class Developer extends Worker {
 
     private String info;
 
-    private Manager myManager;
-
-    public Developer(String name, Team myTeam, String position,
-                     float experience, Task myTask, String type, String info) {
-        super(name, myTeam, position, experience, myTask);
+    public Developer(String name, String position, float experience, Team myTeam, Set<Project> projects, String type, String info) {
+        super(name, position, experience, myTeam, projects);
         this.type = type;
         this.info = info;
-        this.myManager = myManager;
     }
 
     public String getType() {
@@ -40,13 +38,5 @@ public class Developer extends Worker {
 
     public void setInfo(String info) {
         this.info = info;
-    }
-
-    public Manager getMyManager() {
-        return myManager;
-    }
-
-    public void setMyManager(Manager myManager) {
-        this.myManager = myManager;
     }
 }

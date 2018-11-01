@@ -4,10 +4,7 @@ import pl.project.promanage.client.Client;
 import pl.project.promanage.team.Team;
 import pl.project.promanage.user.User;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 @Entity
 public class Customer extends User {
@@ -16,10 +13,11 @@ public class Customer extends User {
 
     private String info;
 
+    @ManyToOne
     private Client myClient;
 
-    public Customer(String name, Team myTeam, String type, String info, Client myClient) {
-        super(name, myTeam);
+    public Customer(String name, String type, String info, Client myClient) {
+        super(name);
         this.type = type;
         this.info = info;
         this.myClient = myClient;

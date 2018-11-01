@@ -1,11 +1,9 @@
 package pl.project.promanage.task;
 
 import pl.project.promanage.project.Project;
+import pl.project.promanage.user.User;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 
 @Entity
@@ -19,9 +17,13 @@ public class Task {
 
     private float state;
 
+    private String attachment;
+
+    @ManyToOne
     private Project myProject;
 
-    private String attachment;
+    @ManyToOne
+    private User myUser;
 
     public Task(String name, float state, Project myProject, String attachment) {
         this.name = name;
@@ -64,5 +66,13 @@ public class Task {
 
     public void setAttachment(String attachment) {
         this.attachment = attachment;
+    }
+
+    public User getMyUser() {
+        return myUser;
+    }
+
+    public void setMyUser(User myUser) {
+        this.myUser = myUser;
     }
 }

@@ -7,7 +7,10 @@ import javax.persistence.*;
 
 
 @Entity
-public class Task {
+@Inheritance
+@DiscriminatorColumn(name = "task_type")
+@Table(name = "tasks")
+public abstract class Task {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -18,6 +21,8 @@ public class Task {
     private float state;
 
     private String attachment;
+
+
 
     @ManyToOne
     private Project myProject;

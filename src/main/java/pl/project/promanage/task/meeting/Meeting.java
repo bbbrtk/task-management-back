@@ -2,13 +2,12 @@ package pl.project.promanage.task.meeting;
 
 import pl.project.promanage.project.Project;
 import pl.project.promanage.task.Task;
+import pl.project.promanage.task.TaskType;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 @Entity
+@DiscriminatorValue("MEETING")
 public class Meeting extends Task {
 
     private String place;

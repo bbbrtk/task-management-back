@@ -22,8 +22,6 @@ public abstract class Task {
 
     private String attachment;
 
-
-
     @ManyToOne
     private Project myProject;
 

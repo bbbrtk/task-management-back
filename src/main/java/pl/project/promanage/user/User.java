@@ -7,13 +7,16 @@ import javax.persistence.*;
 import java.util.Date;
 
 @Entity
-public class User {
+@Inheritance(strategy = InheritanceType.JOINED)
+public abstract class User {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
     private String name;
+
+    public User(){};
 
     public User(String name) {
         this.name = name;

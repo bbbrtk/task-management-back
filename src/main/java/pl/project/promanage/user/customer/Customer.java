@@ -7,6 +7,7 @@ import pl.project.promanage.user.User;
 import javax.persistence.*;
 
 @Entity
+@DiscriminatorValue("Customer")
 public class Customer extends User {
 
     private String type;
@@ -15,6 +16,8 @@ public class Customer extends User {
 
     @ManyToOne
     private Client myClient;
+
+    public Customer(){};
 
     public Customer(String name, String type, String info, Client myClient) {
         super(name);

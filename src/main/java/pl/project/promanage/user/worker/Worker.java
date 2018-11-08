@@ -5,13 +5,12 @@ import pl.project.promanage.task.Task;
 import pl.project.promanage.team.Team;
 import pl.project.promanage.user.User;
 
-import javax.persistence.Entity;
-import javax.persistence.ManyToMany;
-import javax.persistence.ManyToOne;
+import javax.persistence.*;
 import java.util.Set;
 
 @Entity
-public class Worker extends User {
+@DiscriminatorValue("Worker")
+public abstract class Worker extends User {
 
     private String position;
 
@@ -22,8 +21,15 @@ public class Worker extends User {
     // or
     // private List<Task> myTasks;
 
-    @ManyToMany(mappedBy = "workers")
+    @ManyToMany(fetch = FetchType.LAZY,
+            cascade = {
+                    CascadeType.PERSIST,
+                    CascadeType.MERGE
+            },
+            mappedBy = "workers")
     private Set<Project> projects;
+
+    public Worker(){};
 
     public Worker(String name, String position, float experience, Team myTeam, Set<Project> projects) {
         super(name);

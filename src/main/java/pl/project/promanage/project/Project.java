@@ -1,12 +1,16 @@
 package pl.project.promanage.project;
 
+import org.springframework.lang.Nullable;
 import pl.project.promanage.client.Client;
 import pl.project.promanage.user.worker.Worker;
 
 import javax.persistence.*;
+import javax.validation.constraints.Null;
+import java.util.HashSet;
 import java.util.Set;
 
 @Entity
+@Table(name = "projects")
 public class Project {
 
     @Id
@@ -17,13 +21,22 @@ public class Project {
 
     private float duration;
 
+    @Nullable
     @ManyToOne
     private Client myClient;
 
-    @ManyToMany(cascade = CascadeType.ALL)
-    @JoinTable(name = "projects_workers", joinColumns = @JoinColumn(name = "project_id", referencedColumnName = "id"),
-            inverseJoinColumns = @JoinColumn(name = "worker_id", referencedColumnName = "id"))
-    private Set<Worker> workers;
+    @Nullable
+    @ManyToMany(fetch = FetchType.LAZY,
+            cascade = {
+                    CascadeType.PERSIST,
+                    CascadeType.MERGE
+            })
+    @JoinTable(name = "projects_workers",
+            joinColumns = { @JoinColumn(name = "project_id") },
+            inverseJoinColumns = { @JoinColumn(name = "worker_id") })
+    private Set<Worker> workers = new HashSet<>();
+
+    public  Project(){};
 
     public Project(String name, float duration, Client myClient, Set<Worker> workers) {
         this.name = name;

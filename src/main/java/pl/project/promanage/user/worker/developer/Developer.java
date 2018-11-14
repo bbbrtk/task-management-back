@@ -20,6 +20,8 @@ public class Developer extends Worker {
 
     private String info;
 
+    private Integer rating;
+
     public Developer(){};
 
     public Developer(String name, String position, float experience, Team myTeam, Set<Project> projects, String type, String info) {
@@ -42,5 +44,13 @@ public class Developer extends Worker {
 
     public void setInfo(String info) {
         this.info = info;
+    }
+
+    public Integer getRating() {
+        return rating;
+    }
+
+    public void setRating(Integer rating) {
+        this.rating = rating;
     }
 }

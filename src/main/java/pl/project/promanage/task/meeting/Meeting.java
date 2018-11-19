@@ -2,7 +2,6 @@ package pl.project.promanage.task.meeting;
 
 import pl.project.promanage.project.Project;
 import pl.project.promanage.task.Task;
-import pl.project.promanage.task.TaskType;
 
 import javax.persistence.*;
 

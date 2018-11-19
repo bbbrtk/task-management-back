@@ -8,7 +8,7 @@ import javax.persistence.*;
 
 @Entity
 @Inheritance
-@DiscriminatorColumn(name = "task_type")
+@DiscriminatorColumn(name = "dtype")
 @Table(name = "tasks")
 public abstract class Task {
 

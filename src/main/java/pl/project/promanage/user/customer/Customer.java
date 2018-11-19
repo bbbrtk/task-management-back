@@ -1,10 +1,12 @@
 package pl.project.promanage.user.customer;
 
+import org.springframework.lang.Nullable;
 import pl.project.promanage.client.Client;
 import pl.project.promanage.team.Team;
 import pl.project.promanage.user.User;
 
 import javax.persistence.*;
+import javax.validation.constraints.Null;
 
 @Entity
 @DiscriminatorValue("Customer")
@@ -15,6 +17,7 @@ public class Customer extends User {
     private String info;
 
     @ManyToOne
+    @Nullable
     private Client myClient;
 
     public Customer(){};

@@ -1,5 +1,6 @@
 package pl.project.promanage.user.worker;
 
+import org.springframework.lang.Nullable;
 import pl.project.promanage.project.Project;
 import pl.project.promanage.task.Task;
 import pl.project.promanage.team.Team;
@@ -10,12 +11,14 @@ import java.util.Set;
 
 @Entity
 @DiscriminatorValue("Worker")
+@DiscriminatorColumn(name = "wtype")
 public abstract class Worker extends User {
 
     private String position;
 
     private float experience;
 
+    @Nullable
     @ManyToOne
     private Team myTeam;
     // or

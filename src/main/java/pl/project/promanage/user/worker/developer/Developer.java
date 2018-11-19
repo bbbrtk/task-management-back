@@ -1,12 +1,8 @@
 package pl.project.promanage.user.worker.developer;
 
-import pl.project.promanage.client.Client;
 import pl.project.promanage.project.Project;
-import pl.project.promanage.task.Task;
 import pl.project.promanage.team.Team;
-import pl.project.promanage.user.User;
 import pl.project.promanage.user.worker.Worker;
-import pl.project.promanage.user.worker.manager.Manager;
 
 import javax.persistence.DiscriminatorValue;
 import javax.persistence.Entity;

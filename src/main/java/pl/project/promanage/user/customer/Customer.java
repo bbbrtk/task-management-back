@@ -16,8 +16,8 @@ public class Customer extends User {
 
     private String info;
 
-    @ManyToOne
     @Nullable
+    @ManyToOne(cascade = CascadeType.ALL)
     private Client myClient;
 
     public Customer(){};
@@ -45,11 +45,12 @@ public class Customer extends User {
         this.info = info;
     }
 
+    @Nullable
     public Client getMyClient() {
         return myClient;
     }
 
-    public void setMyClient(Client myClient) {
+    public void setMyClient(@Nullable Client myClient) {
         this.myClient = myClient;
     }
 }

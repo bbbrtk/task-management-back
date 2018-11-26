@@ -1,6 +1,7 @@
 package pl.project.promanage.user;
 
 import org.springframework.format.annotation.DateTimeFormat;
+import org.springframework.lang.Nullable;
 import pl.project.promanage.team.Team;
 
 import javax.persistence.*;
@@ -16,6 +17,10 @@ public abstract class User {
     private Long id;
 
     private String name;
+
+    @Nullable
+    @ManyToOne(cascade = CascadeType.ALL)
+    private Team myTeam;
 
     public User(){}
 
@@ -33,5 +38,14 @@ public abstract class User {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    @Nullable
+    public Team getMyTeam() {
+        return myTeam;
+    }
+
+    public void setMyTeam(@Nullable Team myTeam) {
+        this.myTeam = myTeam;
     }
 }

@@ -7,6 +7,7 @@ import pl.project.promanage.team.Team;
 import pl.project.promanage.user.User;
 
 import javax.persistence.*;
+import java.util.ArrayList;
 import java.util.Set;
 
 @Entity
@@ -18,11 +19,8 @@ public abstract class Worker extends User {
 
     private float experience;
 
-    @Nullable
-    @ManyToOne
-    private Team myTeam;
-    // or
-    // private List<Task> myTasks;
+    // connection in class Task
+    // private ArrayList<Task> myTasks;
 
     @ManyToMany(fetch = FetchType.LAZY,
             cascade = {
@@ -38,7 +36,6 @@ public abstract class Worker extends User {
         super(name);
         this.position = position;
         this.experience = experience;
-        this.myTeam = myTeam;
         this.projects = projects;
     }
 
@@ -56,14 +53,6 @@ public abstract class Worker extends User {
 
     public void setExperience(float experience) {
         this.experience = experience;
-    }
-
-    public Team getMyTeam() {
-        return myTeam;
-    }
-
-    public void setMyTeam(Team myTeam) {
-        this.myTeam = myTeam;
     }
 
     public Set<Project> getProjects() {

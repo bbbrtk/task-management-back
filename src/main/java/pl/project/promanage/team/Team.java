@@ -1,6 +1,7 @@
 package pl.project.promanage.team;
 
 import org.springframework.format.annotation.DateTimeFormat;
+import org.springframework.lang.Nullable;
 import pl.project.promanage.company.Company;
 
 import javax.persistence.*;
@@ -15,14 +16,14 @@ public class Team {
 
     private String name;
 
-    @ManyToOne
+    @Nullable
+    @ManyToOne(cascade = CascadeType.ALL)
     private Company myCompany;
 
     private float capacity;
 
-    public Team(String name, Company myCompany, float capacity) {
+    public Team(String name, float capacity) {
         this.name = name;
-        this.myCompany = myCompany;
         this.capacity = capacity;
     }
 
@@ -38,11 +39,12 @@ public class Team {
         this.name = name;
     }
 
+    @Nullable
     public Company getMyCompany() {
         return myCompany;
     }
 
-    public void setMyCompany(Company myCompany) {
+    public void setMyCompany(@Nullable Company myCompany) {
         this.myCompany = myCompany;
     }
 

@@ -1,11 +1,15 @@
 package pl.project.promanage.user.worker.developer;
 
+import org.springframework.lang.Nullable;
 import pl.project.promanage.project.Project;
 import pl.project.promanage.team.Team;
 import pl.project.promanage.user.worker.Worker;
+import pl.project.promanage.user.worker.manager.Manager;
 
+import javax.persistence.CascadeType;
 import javax.persistence.DiscriminatorValue;
 import javax.persistence.Entity;
+import javax.persistence.ManyToOne;
 import java.util.Set;
 
 @Entity
@@ -17,6 +21,10 @@ public class Developer extends Worker {
     private String info;
 
     private Integer rating;
+
+    @Nullable
+    @ManyToOne(cascade = CascadeType.ALL)
+    private Manager myManager;
 
     public Developer(){};
 
@@ -48,5 +56,14 @@ public class Developer extends Worker {
 
     public void setRating(Integer rating) {
         this.rating = rating;
+    }
+
+    @Nullable
+    public Manager getMyManager() {
+        return myManager;
+    }
+
+    public void setMyManager(@Nullable Manager myManager) {
+        this.myManager = myManager;
     }
 }

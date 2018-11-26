@@ -1,5 +1,6 @@
 package pl.project.promanage.task;
 
+import org.springframework.lang.Nullable;
 import pl.project.promanage.project.Project;
 import pl.project.promanage.user.User;
 
@@ -22,10 +23,12 @@ public abstract class Task {
 
     private String attachment;
 
-    @ManyToOne
+    @Nullable
+    @ManyToOne(cascade = CascadeType.ALL)
     private Project myProject;
 
-    @ManyToOne
+    @Nullable
+    @ManyToOne(cascade = CascadeType.ALL)
     private User myUser;
 
     public Task(String name, float state, Project myProject, String attachment) {
@@ -55,14 +58,6 @@ public abstract class Task {
         this.state = state;
     }
 
-    public Project getMyProject() {
-        return myProject;
-    }
-
-    public void setMyProject(Project myProject) {
-        this.myProject = myProject;
-    }
-
     public String getAttachment() {
         return attachment;
     }
@@ -71,11 +66,21 @@ public abstract class Task {
         this.attachment = attachment;
     }
 
+    @Nullable
+    public Project getMyProject() {
+        return myProject;
+    }
+
+    public void setMyProject(@Nullable Project myProject) {
+        this.myProject = myProject;
+    }
+
+    @Nullable
     public User getMyUser() {
         return myUser;
     }
 
-    public void setMyUser(User myUser) {
+    public void setMyUser(@Nullable User myUser) {
         this.myUser = myUser;
     }
 }

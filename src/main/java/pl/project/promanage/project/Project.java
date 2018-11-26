@@ -22,7 +22,7 @@ public class Project {
     private float duration;
 
     @Nullable
-    @ManyToOne
+    @ManyToOne(cascade = CascadeType.ALL)
     private Client myClient;
 
     @Nullable
@@ -35,6 +35,7 @@ public class Project {
             joinColumns = { @JoinColumn(name = "project_id") },
             inverseJoinColumns = { @JoinColumn(name = "worker_id") })
     private Set<Worker> workers = new HashSet<>();
+
 
     public  Project(){};
 
@@ -65,19 +66,21 @@ public class Project {
         this.duration = duration;
     }
 
+    @Nullable
     public Client getMyClient() {
         return myClient;
     }
 
-    public void setMyClient(Client myClient) {
+    public void setMyClient(@Nullable Client myClient) {
         this.myClient = myClient;
     }
 
+    @Nullable
     public Set<Worker> getWorkers() {
         return workers;
     }
 
-    public void setWorkers(Set<Worker> workers) {
+    public void setWorkers(@Nullable Set<Worker> workers) {
         this.workers = workers;
     }
 }

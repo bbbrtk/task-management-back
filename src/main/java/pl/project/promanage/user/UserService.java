@@ -24,21 +24,21 @@ public class UserService {
         return users;
     }
 
-//    public User getUser(Long id){
-//        return userRepository.findById(id).orElse(null);
-//    }
-//
-//    public void addUser(User user){
-//        userRepository.save(user);
-//    }
-//
-//    public void updateUser(User user){
-//        userRepository.save(user);
-//    }
-//
-//    public void deleteUser(Long id){
-//        userRepository.deleteById(id);
-//    }
+    public User getUser(Long id){
+        return userRepository.findById(id).orElse(null);
+    }
+
+    public void addUser(User user){
+        userRepository.save(user);
+    }
+
+    public void updateUser(User user){
+        userRepository.save(user);
+    }
+
+    public void deleteUser(Long id){
+        userRepository.deleteById(id);
+    }
 
 
 }

@@ -2,40 +2,38 @@ package pl.project.promanage.team;
 
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
+@RestController
 public class TeamController {
 
     @Autowired
     private TeamService teamService;
 
-    @RequestMapping("/teams")
-    public List<Team> getAllProjects(){
+    @GetMapping("/teams")
+    public List<Team> getAllTeams(){
         return teamService.getAllTeams();
     }
 
-    @RequestMapping("/teams/{id}")
-    public Team getProject(@PathVariable Long id){
+    @GetMapping("/teams/{id}")
+    public Team getTeam(@PathVariable Long id){
         return teamService.getTeam(id);
     }
 
-    @RequestMapping(method = RequestMethod.PUT, value = "/teams/{id}")
-    public void updateProject(@RequestBody Team team, @PathVariable Long id){
+    @PutMapping("/teams/{id}")
+    public void updateTeam(@RequestBody Team team, @PathVariable Long id){
         teamService.updateTeam(team);
     }
 
-    @RequestMapping(method = RequestMethod.POST, value = "/teams")
-    public void createProject(@RequestBody Team team){
+    @PostMapping("/teams")
+    public void createTeam(@RequestBody Team team){
         teamService.addTeam(team);
     }
 
-    @RequestMapping(method = RequestMethod.DELETE, value = "/teams/{id}")
-    public void deleteProject(@PathVariable Long id){
+    @DeleteMapping("/teams/{id}")
+    public void deleteTeam(@PathVariable Long id){
         teamService.deleteTeam(id);
     }
 

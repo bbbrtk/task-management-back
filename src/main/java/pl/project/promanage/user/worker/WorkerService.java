@@ -18,4 +18,21 @@ public class WorkerService {
         workerRepository.findAll().forEach(users::add);
         return users;
     }
+
+    public Worker getWorker(Long id){
+        return workerRepository.findById(id).orElse(null);
+    }
+
+    public void addWorker(Worker worker){
+        workerRepository.save(worker);
+    }
+
+    public void updateWorker(Worker worker){
+        workerRepository.save(worker);
+    }
+
+    public void deleteWorker(Long id){
+        workerRepository.deleteById(id);
+    }
+
 }

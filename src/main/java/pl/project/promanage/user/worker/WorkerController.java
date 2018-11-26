@@ -2,22 +2,39 @@ package pl.project.promanage.user.worker;
 
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
 @RestController
-@RequestMapping("/workers")
 public class WorkerController {
 
     @Autowired
     private WorkerService workerService;
 
-    @GetMapping
-    public List<Worker> getAllUsers(){
+    @GetMapping("/workers")
+    public List<Worker> getAllWarker(){
         return workerService.getAllWorkers();
+    }
+
+    @GetMapping("/workers/{id}")
+    public Worker getWorker(@PathVariable Long id){
+        return workerService.getWorker(id);
+    }
+
+    @PutMapping("/workers/{id}")
+    public void updateWorker(@RequestBody Worker worker, @PathVariable Long id){
+        workerService.updateWorker(worker);
+    }
+
+    @PostMapping("/workers")
+    public void createWorker(@RequestBody Worker worker){
+        workerService.addWorker(worker);
+    }
+
+    @DeleteMapping("/workers/{id}")
+    public void deleteWorker(@PathVariable Long id){
+        workerService.deleteWorker(id);
     }
 
 }

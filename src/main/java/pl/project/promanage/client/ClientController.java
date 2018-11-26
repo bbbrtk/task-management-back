@@ -12,27 +12,27 @@ public class ClientController {
     @Autowired
     private ClientService clientService;
 
-    @RequestMapping("/clients")
+    @GetMapping("/clients")
     public List<Client> getAllClients(){
         return clientService.getAllClients();
     }
 
-    @RequestMapping("/clients/{id}")
+    @GetMapping("/clients/{id}")
     public Client getClient(@PathVariable Long id){
         return clientService.getClient(id);
     }
 
-    @RequestMapping(method = RequestMethod.PUT, value = "/clients/{id}")
+    @PutMapping("/clients/{id}")
     public void updateClient(@RequestBody Client client, @PathVariable Long id){
         clientService.updateClient(client);
     }
 
-    @RequestMapping(method = RequestMethod.POST, value = "/clients")
+    @PostMapping("/clients")
     public void createClient(@RequestBody Client client){
         clientService.addClient(client);
     }
 
-    @RequestMapping(method = RequestMethod.DELETE, value = "/clients/{id}")
+    @DeleteMapping("/clients/{id}")
     public void deleteClient(@PathVariable Long id){
         clientService.deleteClient(id);
     }

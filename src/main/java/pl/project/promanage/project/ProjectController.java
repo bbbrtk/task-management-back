@@ -13,27 +13,27 @@ public class ProjectController {
     @Autowired
     private ProjectService projectService;
 
-    @RequestMapping("/projects")
+    @GetMapping("/projects")
     public List<Project> getAllProjects(){
         return projectService.getAllProjects();
     }
 
-    @RequestMapping("/projects/{id}")
+    @GetMapping("/projects/{id}")
     public Project getProject(@PathVariable Long id){
         return projectService.getProject(id);
     }
 
-    @RequestMapping(method = RequestMethod.PUT, value = "/projects/{id}")
+    @PutMapping("/projects/{id}")
     public void updateProject(@RequestBody Project project, @PathVariable Long id){
         projectService.updateProject(project);
     }
 
-    @RequestMapping(method = RequestMethod.POST, value = "/projects")
+    @PostMapping("/projects")
     public void createProject(@RequestBody Project project){
         projectService.addProject(project);
     }
 
-    @RequestMapping(method = RequestMethod.DELETE, value = "/projects/{id}")
+    @DeleteMapping("/projects/{id}")
     public void deleteProject(@PathVariable Long id){
         projectService.deleteProject(id);
     }

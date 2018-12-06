@@ -5,13 +5,15 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
+
+@CrossOrigin(origins = "http://localhost:8080")
 @RestController
 public class UserController {
 
     @Autowired
     private UserService userService;
 
-    @GetMapping("/users")
+    @GetMapping(value = "/users")
     public List<User> getAllUsers(){
         return userService.getAllUsers();
     }

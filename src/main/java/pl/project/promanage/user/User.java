@@ -22,6 +22,10 @@ public abstract class User {
     @ManyToOne(cascade = CascadeType.ALL)
     private Team myTeam;
 
+    private String forename;
+
+    private String email;
+
     public User(){}
 
     public User(String name) {
@@ -47,5 +51,21 @@ public abstract class User {
 
     public void setMyTeam(@Nullable Team myTeam) {
         this.myTeam = myTeam;
+    }
+
+    public String getForename() {
+        return forename;
+    }
+
+    public void setForename(String forename) {
+        this.forename = forename;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
     }
 }

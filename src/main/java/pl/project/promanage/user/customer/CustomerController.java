@@ -8,7 +8,9 @@ import pl.project.promanage.user.customer.CustomerService;
 import java.util.List;
 
 @RestController
+@CrossOrigin(origins = "http://localhost:8080")
 public class CustomerController {
+
 
     @Autowired
     private CustomerService customerService;

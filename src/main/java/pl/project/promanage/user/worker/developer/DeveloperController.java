@@ -9,6 +9,7 @@ import pl.project.promanage.user.worker.manager.ManagerService;
 import java.util.List;
 
 @RestController
+@CrossOrigin(origins = "http://localhost:8080")
 public class DeveloperController {
 
     @Autowired

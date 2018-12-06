@@ -9,6 +9,8 @@ import pl.project.promanage.project.ProjectService;
 import java.util.List;
 
 @RestController
+@CrossOrigin(origins = "http://localhost:8080")
+@RequestMapping("/{user}/projects/{project}/task")
 public class TaskController {
 
 

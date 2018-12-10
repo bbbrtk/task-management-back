@@ -3,8 +3,6 @@ package pl.project.promanage.user.worker.developer;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
-import pl.project.promanage.user.worker.manager.Manager;
-import pl.project.promanage.user.worker.manager.ManagerService;
 
 import java.util.List;
 
@@ -26,13 +24,13 @@ public class DeveloperController {
     }
 
     @PutMapping("/developers/{id}")
-    public void updateDeveloper(@RequestBody Developer manager, @PathVariable Long id){
-        developerService.updateDeveloper(manager);
+    public void updateDeveloper(@RequestBody Developer developer, @PathVariable Long id){
+        developerService.updateDeveloper(developer);
     }
 
     @PostMapping("/developers")
-    public void createDeveloper(@RequestBody Developer manager){
-        developerService.addDeveloper(manager);
+    public void createDeveloper(@RequestBody Developer developer){
+        developerService.addDeveloper(developer);
     }
 
     @DeleteMapping("/developers/{id}")

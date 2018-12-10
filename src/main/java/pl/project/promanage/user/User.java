@@ -26,6 +26,9 @@ public abstract class User {
 
     private String email;
 
+    @Column(insertable = false, updatable = false)
+    private String dtype;
+
     public User(){}
 
     public User(String name) {
@@ -67,5 +70,13 @@ public abstract class User {
 
     public void setEmail(String email) {
         this.email = email;
+    }
+
+    public String getDtype() {
+        return dtype;
+    }
+
+    public void setDtype(String dtype) {
+        this.dtype = dtype;
     }
 }

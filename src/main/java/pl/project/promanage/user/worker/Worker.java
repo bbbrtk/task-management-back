@@ -30,6 +30,9 @@ public abstract class Worker extends User {
             mappedBy = "workers")
     private Set<Project> projects;
 
+    @Column(insertable = false, updatable = false)
+    private String wtype;
+
     public Worker(){};
 
     public Worker(String name, String position, float experience, Team myTeam, Set<Project> projects) {

@@ -9,6 +9,7 @@ import pl.project.promanage.user.worker.manager.ManagerRepository;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class UserService {
@@ -41,4 +42,9 @@ public class UserService {
     }
 
 
+    public Integer authUser(String name) {
+        Object user = userRepository.findByName(name).orElse(null);
+        if(user != null) return 1;
+        return 0;
+    }
 }

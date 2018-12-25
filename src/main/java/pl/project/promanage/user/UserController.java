@@ -38,4 +38,13 @@ public class UserController {
         userService.deleteUser(id);
     }
 
+    @PostMapping("/users/auth")
+    public @ResponseBody Integer authUser(@RequestBody String name ){
+
+        if (name != null && name.length() > 0 && name.charAt(name.length() - 1) == '=') {  //nie wiem czemu ale doklejalo '=' na koncu name ... :(
+            name = name.substring(0, name.length() - 1);
+        }
+        return userService.authUser(name);
+    }
+
 }

@@ -42,9 +42,9 @@ public class UserService {
     }
 
 
-    public Integer authUser(String name) {
-        Object user = userRepository.findByName(name).orElse(null);
-        if(user != null) return 1;
-        return 0;
+    public User authUser(String name) {
+        User user = userRepository.findByName(name).orElse(null);
+        if(user != null) return user;
+        return null;
     }
 }

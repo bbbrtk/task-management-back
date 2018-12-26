@@ -7,5 +7,5 @@ import java.util.Optional;
 @Transactional
 public interface UserRepository extends UserBaseRepository<User> {
 
-    Optional<Object> findByName(String name);
+    Optional<User> findByName(String name);
 }

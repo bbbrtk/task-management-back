@@ -3,6 +3,7 @@ package pl.project.promanage.team;
 import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.lang.Nullable;
 import pl.project.promanage.company.Company;
+import pl.project.promanage.user.worker.manager.Manager;
 
 import javax.persistence.*;
 import java.util.Date;
@@ -55,4 +56,5 @@ public class Team {
     public void setCapacity(float capacity) {
         this.capacity = capacity;
     }
+
 }

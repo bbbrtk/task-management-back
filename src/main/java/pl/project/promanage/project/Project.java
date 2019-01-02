@@ -3,6 +3,7 @@ package pl.project.promanage.project;
 import org.springframework.lang.Nullable;
 import pl.project.promanage.client.Client;
 import pl.project.promanage.user.worker.Worker;
+import pl.project.promanage.user.worker.manager.Manager;
 
 import javax.persistence.*;
 import javax.validation.constraints.Null;
@@ -24,6 +25,10 @@ public class Project {
     @Nullable
     @ManyToOne(cascade = CascadeType.ALL)
     private Client myClient;
+
+    @Nullable
+    @ManyToOne
+    private Manager myManager;
 
     @Nullable
     @ManyToMany(fetch = FetchType.LAZY,
@@ -82,5 +87,13 @@ public class Project {
 
     public void setWorkers(@Nullable Set<Worker> workers) {
         this.workers = workers;
+    }
+
+    public Manager getMyManager() {
+        return myManager;
+    }
+
+    public void setMyManager(Manager myManager) {
+        this.myManager = myManager;
     }
 }

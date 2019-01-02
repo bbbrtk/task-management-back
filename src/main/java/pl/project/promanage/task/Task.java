@@ -5,6 +5,8 @@ import pl.project.promanage.project.Project;
 import pl.project.promanage.user.User;
 
 import javax.persistence.*;
+import java.sql.Timestamp;
+import java.util.Date;
 
 
 @Entity
@@ -22,6 +24,8 @@ public abstract class Task {
     private float state;
 
     private String attachment;
+
+    private Timestamp deadline;
 
     @Nullable
     @ManyToOne(cascade = CascadeType.ALL)
@@ -82,5 +86,13 @@ public abstract class Task {
 
     public void setMyUser(@Nullable User myUser) {
         this.myUser = myUser;
+    }
+
+    public Timestamp getDeadline() {
+        return deadline;
+    }
+
+    public void setDeadline(Timestamp deadline) {
+        this.deadline = deadline;
     }
 }

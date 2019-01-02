@@ -11,12 +11,21 @@ import java.util.List;
 public class ProjectController {
 
 
+    private final ProjectService projectService;
+
     @Autowired
-    private ProjectService projectService;
+    public ProjectController(ProjectService projectService) {
+        this.projectService = projectService;
+    }
 
     @GetMapping("/projects")
     public List<Project> getAllProjects(){
         return projectService.getAllProjects();
+    }
+
+    @GetMapping("projects/{uId}")
+    public List<Project> getUserCompanyProjects(){
+        return null;
     }
 
     @GetMapping("/projects/{id}")

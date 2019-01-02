@@ -1,9 +1,9 @@
 package pl.project.promanage.user.worker;
 
-import org.springframework.data.repository.CrudRepository;
+import pl.project.promanage.user.UserBaseRepository;
 
 public interface WorkerBaseRepository<T extends Worker>
-        extends CrudRepository<T, Long> {
+        extends UserBaseRepository<T> {
 
 
 }

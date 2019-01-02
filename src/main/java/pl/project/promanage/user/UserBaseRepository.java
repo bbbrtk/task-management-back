@@ -9,4 +9,5 @@ import java.util.Optional;
 public interface UserBaseRepository<T extends User>
         extends CrudRepository<T, Long> {
 
+
 }

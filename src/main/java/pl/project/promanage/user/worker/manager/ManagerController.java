@@ -3,6 +3,7 @@ package pl.project.promanage.user.worker.manager;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
+import pl.project.promanage.task.Task;
 
 import java.util.List;
 
@@ -10,8 +11,12 @@ import java.util.List;
 @RestController
 public class ManagerController {
 
+    private final ManagerService managerService;
+
     @Autowired
-    private ManagerService managerService;
+    public ManagerController(ManagerService managerService) {
+        this.managerService = managerService;
+    }
 
     @GetMapping("/managers")
     public List<Manager> getAllManagers(){
@@ -26,6 +31,11 @@ public class ManagerController {
     @PutMapping("/managers/{id}")
     public void updateManager(@RequestBody Manager manager, @PathVariable Long id){
         managerService.updateManager(manager);
+    }
+
+    @GetMapping("/managers/{id}/home-card")
+    public List<Task> getHomeCardTasks(@PathVariable Long id){
+        return managerService.getHomeCardTasks(id);
     }
 
     @PostMapping("/managers")

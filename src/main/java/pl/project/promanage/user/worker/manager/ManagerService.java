@@ -2,6 +2,7 @@ package pl.project.promanage.user.worker.manager;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import pl.project.promanage.task.Task;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -35,4 +36,7 @@ public class ManagerService {
         managerRepository.deleteById(id);
     }
 
+    public List<Task> getHomeCardTasks(Long id) {
+        return managerRepository.getTopTasks(id);
+    }
 }

@@ -44,10 +44,18 @@ public class Project {
 
     public  Project(){};
 
-    public Project(String name, float duration, Client myClient, Set<Worker> workers) {
+//    public Project(String name, float duration, Client myClient, Set<Worker> workers) {
+//        this.name = name;
+//        this.duration = duration;
+//        this.myClient = myClient;
+//        this.workers = workers;
+//    }
+
+    public Project(String name, float duration, @Nullable Client myClient, @Nullable Manager myManager, @Nullable Set<Worker> workers) {
         this.name = name;
         this.duration = duration;
         this.myClient = myClient;
+        this.myManager = myManager;
         this.workers = workers;
     }
 

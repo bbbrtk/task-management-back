@@ -27,6 +27,8 @@ public class ProjectService {
         return projectRepository.findById(id).orElse(null);
     }
 
+    public List<Project> getUserProjects(long uId) { return projectRepository.getUserProjects(uId); }
+
     public void addProject(Project project){
         projectRepository.save(project);
     }

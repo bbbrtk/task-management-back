@@ -26,6 +26,7 @@ public class Client {
 
     private float asset;
 
+    public Client(){}
 
     public Client(String name, String NIP, String description, Date dateOfEst, float asset) {
         this.name = name;

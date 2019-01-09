@@ -1,0 +1,5 @@
+<root>
+    <item name='org.springframework.data.repository.CrudRepository java.lang.Iterable&lt;T&gt; findAll()'>
+        <annotation name='org.jetbrains.annotations.NotNull'/>
+    </item>
+</root>

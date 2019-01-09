@@ -23,15 +23,13 @@ public class ProjectController {
         return projectService.getAllProjects();
     }
 
-    @GetMapping("projects/{uId}")
-    public List<Project> getUserCompanyProjects(){
-        return null;
+    @GetMapping("projects/user-{uId}")
+    public List<Project> getUserProjects(@PathVariable String uId){
+        return projectService.getUserProjects(Long.parseLong(uId));
     }
 
     @GetMapping("/projects/{id}")
-    public Project getProject(@PathVariable Long id){
-        return projectService.getProject(id);
-    }
+    public Project getProject(@PathVariable Long id){return projectService.getProject(id);}
 
     @PutMapping("/projects/{id}")
     public void updateProject(@RequestBody Project project, @PathVariable Long id){

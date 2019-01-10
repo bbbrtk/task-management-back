@@ -1,16 +1,18 @@
 package pl.project.promanage.task.meeting;
 
+import org.springframework.lang.Nullable;
 import pl.project.promanage.project.Project;
 import pl.project.promanage.task.Task;
 
 import javax.persistence.*;
 
 @Entity
-@DiscriminatorValue("MEETING")
+@DiscriminatorValue("Meeting")
 public class Meeting extends Task {
 
+    @Nullable
     private String place;
-
+    @Nullable
     private String topic;
 
     public Meeting(){}

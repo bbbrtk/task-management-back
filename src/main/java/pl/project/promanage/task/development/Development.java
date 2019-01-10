@@ -12,6 +12,8 @@ public class Development extends Task {
 
     private String description;
 
+    public Development(){}
+
     public Development(String name, float state, Project myProject, String attachment, String connectedTo, String description) {
         super(name, state, myProject, attachment);
         this.connectedTo = connectedTo;

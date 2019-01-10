@@ -12,6 +12,8 @@ public class Email extends Task {
 
     private String text;
 
+    public Email(){}
+
     public Email(String name, float state, Project myProject, String attachment, String topic, String text) {
         super(name, state, myProject, attachment);
         this.topic = topic;

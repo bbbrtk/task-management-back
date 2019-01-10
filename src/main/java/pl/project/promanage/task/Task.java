@@ -35,6 +35,8 @@ public abstract class Task {
     @ManyToOne(cascade = CascadeType.ALL)
     private User myUser;
 
+    public Task(){}
+
     public Task(String name, float state, Project myProject, String attachment) {
         this.name = name;
         this.state = state;

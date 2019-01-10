@@ -12,6 +12,8 @@ public class TestDriving extends Task {
 
     private String description;
 
+    public TestDriving(){}
+
     public TestDriving(String name, float state, Project myProject, String attachment, float testScore, String description) {
         super(name, state, myProject, attachment);
         this.testScore = testScore;

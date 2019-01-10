@@ -13,6 +13,8 @@ public class Meeting extends Task {
 
     private String topic;
 
+    public Meeting(){}
+
     public Meeting(String name, float state, Project myProject, String attachment, String place, String topic) {
         super(name, state, myProject, attachment);
         this.place = place;

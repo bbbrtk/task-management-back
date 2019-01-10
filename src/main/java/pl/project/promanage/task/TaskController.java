@@ -10,7 +10,7 @@ import java.util.List;
 
 @RestController
 @CrossOrigin(origins = "http://localhost:8080")
-@RequestMapping("/{user}/projects/{project}/task")
+//@RequestMapping("/{user}/projects/{project}/task")
 public class TaskController {
 
 
@@ -20,6 +20,16 @@ public class TaskController {
     @GetMapping("/tasks")
     public List<Task> getAllTasks(){
         return taskService.getAllTasks();
+    }
+
+    @GetMapping("/project-tasks")
+    public List<Task> getAllTasks2(){
+        return taskService.getAllTasks2();
+    }
+
+    @GetMapping("/projects/{project}/tasks")
+    public List<Task> getAllTasksForProject(@PathVariable("project") Long projectId){
+        return taskService.getAllTasksForProject(projectId);
     }
 
     @GetMapping("/tasks/{id}")

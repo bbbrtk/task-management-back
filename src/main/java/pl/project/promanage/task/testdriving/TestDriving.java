@@ -10,6 +10,7 @@ import javax.persistence.Table;
 
 @Entity
 @DiscriminatorValue("TestDriving")
+@Table(name="testdrivings")
 public class TestDriving extends Task {
 
     @Nullable

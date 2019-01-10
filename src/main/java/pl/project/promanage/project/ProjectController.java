@@ -3,6 +3,7 @@ package pl.project.promanage.project;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
+import pl.project.promanage.user.worker.Worker;
 
 import java.util.List;
 
@@ -27,6 +28,16 @@ public class ProjectController {
     public List<Project> getUserProjects(@PathVariable String uId){
         return projectService.getUserProjects(Long.parseLong(uId));
     }
+
+    @GetMapping("projects/client-{uId}")
+    public List<Project> getClientProjects(@PathVariable String uId){
+        return projectService.getClientProjects(Long.parseLong(uId));
+    }
+
+//    @GetMapping("projects/worker-{uId}")
+//    public List<Worker> getWorkerProjects(@PathVariable String uId){
+//        return projectService.getWorkerProjects(Long.parseLong(uId));
+//    }
 
     @GetMapping("/projects/{id}")
     public Project getProject(@PathVariable Long id){return projectService.getProject(id);}

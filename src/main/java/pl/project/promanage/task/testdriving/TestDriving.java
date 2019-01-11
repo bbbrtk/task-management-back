@@ -1,16 +1,25 @@
 package pl.project.promanage.task.testdriving;
 
+import org.springframework.lang.Nullable;
 import pl.project.promanage.project.Project;
 import pl.project.promanage.task.Task;
 
+import javax.persistence.DiscriminatorValue;
 import javax.persistence.Entity;
+import javax.persistence.Table;
 
 @Entity
+@DiscriminatorValue("TestDriving")
+@Table(name="testdrivings")
 public class TestDriving extends Task {
 
+    @Nullable
     private float testScore;
 
+    @Nullable
     private String description;
+
+    public TestDriving(){}
 
     public TestDriving(String name, float state, Project myProject, String attachment, float testScore, String description) {
         super(name, state, myProject, attachment);

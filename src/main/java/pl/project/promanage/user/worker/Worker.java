@@ -17,6 +17,7 @@ public abstract class Worker extends User {
 
     private String position;
 
+    @Nullable
     private float experience;
 
     // connection in class Task
@@ -50,11 +51,12 @@ public abstract class Worker extends User {
         this.position = position;
     }
 
+    @Nullable
     public float getExperience() {
         return experience;
     }
 
-    public void setExperience(float experience) {
+    public void setExperience(@Nullable float experience) {
         this.experience = experience;
     }
 

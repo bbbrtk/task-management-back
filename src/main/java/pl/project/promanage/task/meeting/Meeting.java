@@ -3,8 +3,10 @@ package pl.project.promanage.task.meeting;
 import org.springframework.lang.Nullable;
 import pl.project.promanage.project.Project;
 import pl.project.promanage.task.Task;
+import pl.project.promanage.user.User;
 
 import javax.persistence.*;
+import java.sql.Timestamp;
 
 @Entity
 @DiscriminatorValue("Meeting")
@@ -17,8 +19,8 @@ public class Meeting extends Task {
 
     public Meeting(){}
 
-    public Meeting(String name, float state, Project myProject, String attachment, String place, String topic) {
-        super(name, state, myProject, attachment);
+    public Meeting(String name, float state, String attachment, Timestamp deadline, Project myProject, User myUser, @Nullable String place, @Nullable String topic) {
+        super(name, state, attachment, deadline, myProject, myUser);
         this.place = place;
         this.topic = topic;
     }

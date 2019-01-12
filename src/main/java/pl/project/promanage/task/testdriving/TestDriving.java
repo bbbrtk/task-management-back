@@ -3,10 +3,12 @@ package pl.project.promanage.task.testdriving;
 import org.springframework.lang.Nullable;
 import pl.project.promanage.project.Project;
 import pl.project.promanage.task.Task;
+import pl.project.promanage.user.User;
 
 import javax.persistence.DiscriminatorValue;
 import javax.persistence.Entity;
 import javax.persistence.Table;
+import java.sql.Timestamp;
 
 @Entity
 @DiscriminatorValue("TestDriving")
@@ -21,8 +23,8 @@ public class TestDriving extends Task {
 
     public TestDriving(){}
 
-    public TestDriving(String name, float state, Project myProject, String attachment, float testScore, String description) {
-        super(name, state, myProject, attachment);
+    public TestDriving(String name, float state, String attachment, Timestamp deadline, Project myProject, User myUser, float testScore, @Nullable String description) {
+        super(name, state, attachment, deadline, myProject, myUser);
         this.testScore = testScore;
         this.description = description;
     }

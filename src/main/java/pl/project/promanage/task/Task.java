@@ -37,11 +37,20 @@ public abstract class Task {
 
     public Task(){}
 
-    public Task(String name, float state, Project myProject, String attachment) {
+//    public Task(String name, float state, Project myProject, String attachment) {
+//        this.name = name;
+//        this.state = state;
+//        this.myProject = myProject;
+//        this.attachment = attachment;
+//    }
+
+    public Task(String name, float state, String attachment, Timestamp deadline, @Nullable Project myProject, @Nullable User myUser) {
         this.name = name;
         this.state = state;
-        this.myProject = myProject;
         this.attachment = attachment;
+        this.deadline = deadline;
+        this.myProject = myProject;
+        this.myUser = myUser;
     }
 
     public Long getId() {

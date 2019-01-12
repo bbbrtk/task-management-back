@@ -35,6 +35,14 @@ public abstract class User {
         this.name = name;
     }
 
+    public User(String name, @Nullable Team myTeam, String forename, String email, String dtype) {
+        this.name = name;
+        this.myTeam = myTeam;
+        this.forename = forename;
+        this.email = email;
+        this.dtype = dtype;
+    }
+
     public Long getId() {
         return id;
     }

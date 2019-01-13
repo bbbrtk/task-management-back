@@ -2,6 +2,7 @@ package pl.project.promanage.company;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import pl.project.promanage.team.Team;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -22,6 +23,8 @@ public class CompanyService {
     public Company getCompany(Long id){
         return companyRepository.findById(id).orElse(null);
     }
+
+    public List<Team> getTeams(Long id) {return companyRepository.getTeams(id);}
 
     public void addCompany(Company client){
         companyRepository.save(client);

@@ -3,6 +3,7 @@ package pl.project.promanage.company;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
+import pl.project.promanage.team.Team;
 
 import java.util.List;
 
@@ -21,6 +22,11 @@ public class CompanyController {
     @GetMapping("/companies/{id}")
     public Company getCompany(@PathVariable Long id){
         return companyService.getCompany(id);
+    }
+
+    @GetMapping("/companies/{id}/teams")
+    public List<Team> getTeams(@PathVariable Long id){
+        return companyService.getTeams(id);
     }
 
     @PutMapping("/companies/{id}")

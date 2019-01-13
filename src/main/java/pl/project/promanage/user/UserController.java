@@ -2,6 +2,7 @@ package pl.project.promanage.user;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
+import pl.project.promanage.team.Team;
 
 import java.util.List;
 
@@ -21,6 +22,11 @@ public class UserController {
     @GetMapping("/users/{id}")
     public User getUser(@PathVariable Long id){
         return userService.getUser(id);
+    }
+
+    @GetMapping("/users/{id}/myteam")
+    public Team getTeam(@PathVariable Long id){
+        return userService.getTeam(id);
     }
 
     @PutMapping("/users/{id}")

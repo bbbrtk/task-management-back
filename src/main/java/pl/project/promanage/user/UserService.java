@@ -2,6 +2,7 @@ package pl.project.promanage.user;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import pl.project.promanage.team.Team;
 import pl.project.promanage.user.customer.CustomerRepository;
 import pl.project.promanage.user.worker.WorkerRepository;
 import pl.project.promanage.user.worker.developer.DeveloperRepository;
@@ -29,6 +30,10 @@ public class UserService {
 
     public User getUser(Long id){
         return userRepository.findById(id).orElse(null);
+    }
+
+    public Team getTeam(Long id){
+        return userRepository.getTeam(id);
     }
 
     public void addUser(User user){

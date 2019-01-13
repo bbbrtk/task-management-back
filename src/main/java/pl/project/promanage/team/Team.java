@@ -23,8 +23,16 @@ public class Team {
 
     private float capacity;
 
+    public Team() {}
+
     public Team(String name, float capacity) {
         this.name = name;
+        this.capacity = capacity;
+    }
+
+    public Team(String name, @Nullable Company myCompany, float capacity) {
+        this.name = name;
+        this.myCompany = myCompany;
         this.capacity = capacity;
     }
 

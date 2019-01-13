@@ -24,6 +24,8 @@ public class Company {
     @DateTimeFormat(pattern = "dd/MM/yyyy")
     private Date dateOfEst;
 
+    public Company() {}
+
     public Company(String name, String country, String location, Date dateOfEst) {
         this.name = name;
         this.country = country;

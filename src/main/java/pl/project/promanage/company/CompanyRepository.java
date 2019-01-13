@@ -8,6 +8,8 @@ import pl.project.promanage.team.Team;
 import java.util.List;
 
 public interface CompanyRepository extends CrudRepository<Company, Long> {
-    @Query("SELECT t FROM Team t join t.myCompany c where c.id = :companyId")
+
+    @Query("SELECT t FROM Team t where t.myCompany.id = :companyId")
+    //@Query("SELECT t FROM Team t")
     public List<Team> getTeams(@Param("companyId") Long companyId);
 }

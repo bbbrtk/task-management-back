@@ -2,6 +2,7 @@ package pl.project.promanage.user.customer;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import pl.project.promanage.task.Task;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -21,6 +22,10 @@ public class CustomerService {
 
     public Customer getCustomer(Long id){
         return customerRepository.findById(id).orElse(null);
+    }
+
+    public List<Task> getHomeCardTasks(Long id) {
+        return customerRepository.getProjectTasks(id);
     }
 
     public void addCustomer(Customer customer){

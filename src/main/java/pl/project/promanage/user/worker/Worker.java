@@ -25,7 +25,7 @@ public abstract class Worker extends User {
 
     @ManyToMany(fetch = FetchType.LAZY,
             cascade = {
-                    CascadeType.PERSIST,
+//                    CascadeType.PERSIST,
                     CascadeType.MERGE
             },
             mappedBy = "workers")

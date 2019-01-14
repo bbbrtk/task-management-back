@@ -22,10 +22,6 @@ public class Developer extends Worker {
 
     private Integer rating;
 
-    @Nullable
-    @ManyToOne(cascade = CascadeType.ALL)
-    private Manager myManager;
-
     public Developer(){};
 
     public Developer(String name, String position, float experience, Team myTeam, Set<Project> projects, String type, String info) {
@@ -56,14 +52,5 @@ public class Developer extends Worker {
 
     public void setRating(Integer rating) {
         this.rating = rating;
-    }
-
-    @Nullable
-    public Manager getMyManager() {
-        return myManager;
-    }
-
-    public void setMyManager(@Nullable Manager myManager) {
-        this.myManager = myManager;
     }
 }

@@ -23,7 +23,7 @@ public class Project {
     private float duration;
 
     @Nullable
-    @ManyToOne(cascade = CascadeType.ALL)
+    @ManyToOne(cascade = CascadeType.MERGE)
     private Client myClient;
 
     @Nullable
@@ -33,7 +33,7 @@ public class Project {
     @Nullable
     @ManyToMany(fetch = FetchType.LAZY,
             cascade = {
-                    CascadeType.PERSIST,
+//                    CascadeType.PERSIST,
                     CascadeType.MERGE
             })
     @JoinTable(name = "projects_workers",

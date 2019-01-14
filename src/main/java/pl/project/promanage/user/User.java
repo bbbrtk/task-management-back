@@ -19,7 +19,7 @@ public abstract class User {
     private String name;
 
     @Nullable
-    @ManyToOne(cascade = CascadeType.ALL)
+    @ManyToOne(cascade = CascadeType.MERGE)
     private Team myTeam;
 
     private String forename;

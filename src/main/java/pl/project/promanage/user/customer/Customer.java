@@ -17,7 +17,7 @@ public class Customer extends User {
     private String info;
 
     @Nullable
-    @ManyToOne(cascade = CascadeType.ALL)
+    @ManyToOne(cascade = CascadeType.MERGE)
     private Client myClient;
 
     public Customer(){};

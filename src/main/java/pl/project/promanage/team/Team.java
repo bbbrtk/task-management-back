@@ -18,10 +18,14 @@ public class Team {
     private String name;
 
     @Nullable
-    @ManyToOne(cascade = CascadeType.ALL)
+    @ManyToOne(cascade = CascadeType.MERGE)
     private Company myCompany;
 
     private float capacity;
+
+    @Nullable
+    @ManyToOne(cascade = CascadeType.MERGE)
+    private Manager myManager;
 
     public Team() {}
 
@@ -65,4 +69,12 @@ public class Team {
         this.capacity = capacity;
     }
 
+    @Nullable
+    public Manager getMyManager() {
+        return myManager;
+    }
+
+    public void setMyManager(@Nullable Manager myManager) {
+        this.myManager = myManager;
+    }
 }

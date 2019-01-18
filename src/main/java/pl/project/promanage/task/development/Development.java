@@ -1,6 +1,7 @@
 package pl.project.promanage.task.development;
 
 import org.springframework.lang.Nullable;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import pl.project.promanage.project.Project;
 import pl.project.promanage.task.Task;
 import pl.project.promanage.user.User;

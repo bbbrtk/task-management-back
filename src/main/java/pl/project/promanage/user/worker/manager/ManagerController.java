@@ -7,8 +7,8 @@ import pl.project.promanage.task.Task;
 
 import java.util.List;
 
-@CrossOrigin(origins = "http://localhost:8080")
 @RestController
+@CrossOrigin(origins = "http://localhost:8080")
 public class ManagerController {
 
     private final ManagerService managerService;

@@ -1,8 +1,13 @@
 package pl.project.promanage.user;
 
+import com.fasterxml.jackson.annotation.JsonSubTypes;
+import com.fasterxml.jackson.annotation.JsonTypeInfo;
 import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.lang.Nullable;
 import pl.project.promanage.team.Team;
+import pl.project.promanage.user.customer.Customer;
+import pl.project.promanage.user.worker.developer.Developer;
+import pl.project.promanage.user.worker.manager.Manager;
 
 import javax.persistence.*;
 import java.util.Date;
@@ -10,6 +15,14 @@ import java.util.Date;
 @Entity
 @Inheritance(strategy = InheritanceType.JOINED)
 @DiscriminatorColumn(name = "dtype")
+@JsonTypeInfo(use = JsonTypeInfo.Id.NAME)
+@JsonSubTypes({
+        @JsonSubTypes.Type(value = Manager.class, name = "Manager"),
+
+        @JsonSubTypes.Type(value = Developer.class, name = "Developer"),
+
+        @JsonSubTypes.Type(value = Customer.class, name = "Customer")}
+)
 public abstract class User {
 
     @Id

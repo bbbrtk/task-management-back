@@ -13,33 +13,20 @@ import java.sql.Timestamp;
 @DiscriminatorValue("Email")
 public class Email extends Task {
 
-    @Nullable
-    private String topic;
-
-    @Nullable
-    private String text;
+    private String mailTo;
 
     public Email(){}
 
-    public Email(String name, float state, String attachment, Timestamp deadline, Project myProject, User myUser, @Nullable String topic, @Nullable String text) {
-        super(name, state, attachment, deadline, myProject, myUser);
-        this.topic = topic;
-        this.text = text;
+    public Email(String name, float state,  Timestamp deadline, Project myProject, User myUser, String mailTo, String description, float duration) {
+        super(name, state, deadline, myProject, myUser, description, duration);
+        this.mailTo = mailTo;
     }
 
-    public String getTopic() {
-        return topic;
+    public String getMailTo() {
+        return mailTo;
     }
 
-    public void setTopic(String topic) {
-        this.topic = topic;
-    }
-
-    public String getText() {
-        return text;
-    }
-
-    public void setText(String text) {
-        this.text = text;
+    public void setMailTo(String mailTo) {
+        this.mailTo = mailTo;
     }
 }

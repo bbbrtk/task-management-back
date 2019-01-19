@@ -23,7 +23,9 @@ public abstract class Task {
 
     private float state;
 
-    private String attachment;
+    private float duration;
+
+    private String description;
 
     private Timestamp deadline;
 
@@ -44,13 +46,14 @@ public abstract class Task {
 //        this.attachment = attachment;
 //    }
 
-    public Task(String name, float state, String attachment, Timestamp deadline, @Nullable Project myProject, @Nullable User myUser) {
+    public Task(String name, float state, Timestamp deadline, Project myProject, User myUser, String description, float duration) {
         this.name = name;
         this.state = state;
-        this.attachment = attachment;
         this.deadline = deadline;
         this.myProject = myProject;
         this.myUser = myUser;
+        this.description = description;
+        this.duration = duration;
     }
 
     public Long getId() {
@@ -71,14 +74,6 @@ public abstract class Task {
 
     public void setState(float state) {
         this.state = state;
-    }
-
-    public String getAttachment() {
-        return attachment;
-    }
-
-    public void setAttachment(String attachment) {
-        this.attachment = attachment;
     }
 
     @Nullable
@@ -105,5 +100,21 @@ public abstract class Task {
 
     public void setDeadline(Timestamp deadline) {
         this.deadline = deadline;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    public float getDuration() {
+        return duration;
+    }
+
+    public void setDuration(float duration) {
+        this.duration = duration;
     }
 }

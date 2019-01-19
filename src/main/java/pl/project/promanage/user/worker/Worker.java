@@ -20,15 +20,14 @@ public abstract class Worker extends User {
     @Nullable
     private float experience;
 
-    // connection in class Task
-    // private ArrayList<Task> myTasks;
-
     @ManyToMany(fetch = FetchType.LAZY,
             cascade = {
-//                    CascadeType.PERSIST,
+                    CascadeType.PERSIST,
                     CascadeType.MERGE
-            },
-            mappedBy = "workers")
+            })
+    @JoinTable(name = "projects_workers",
+            joinColumns = { @JoinColumn(name = "worker_id") },
+            inverseJoinColumns = { @JoinColumn(name = "project_id") })
     private Set<Project> projects;
 
     @Column(insertable = false, updatable = false)

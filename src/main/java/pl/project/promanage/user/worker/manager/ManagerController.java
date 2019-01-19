@@ -32,11 +32,11 @@ public class ManagerController {
     public void updateManager(@RequestBody Manager manager, @PathVariable Long id){
         managerService.updateManager(manager);
     }
-
-    @GetMapping("/managers/{id}/home-card")
-    public List<Task> getHomeCardTasks(@PathVariable Long id){
-        return managerService.getHomeCardTasks(id);
-    }
+//
+//    @GetMapping("/managers/{id}/home-card")
+//    public List<Task> getHomeCardTasks(@PathVariable Long id){
+//        return managerService.getHomeCardTasks(id);
+//    }
 
     @PostMapping("/managers")
     public void createManager(@RequestBody Manager manager){

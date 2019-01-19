@@ -12,9 +12,9 @@ import java.util.List;
 @Transactional
 public interface ManagerRepository extends WorkerBaseRepository<Manager> {
 
-
-    @Query("SELECT t FROM Task t join t.myProject p join p.myManager m where m.id = :managerId order by t.deadline desc")
-    public List<Task> getTopTasks(@Param("managerId") Long managerId);
+//
+//    @Query("SELECT t FROM Task t join t.myProject p join p.myManager m where m.id = :managerId order by t.deadline desc")
+//    public List<Task> getTopTasks(@Param("managerId") Long managerId);
 
 
 }

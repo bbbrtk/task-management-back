@@ -35,8 +35,8 @@ public class ManagerService {
     public void deleteManager(Long id){
         managerRepository.deleteById(id);
     }
-
-    public List<Task> getHomeCardTasks(Long id) {
-        return managerRepository.getTopTasks(id);
-    }
+//
+//    public List<Task> getHomeCardTasks(Long id) {
+//        return managerRepository.getTopTasks(id);
+//    }
 }

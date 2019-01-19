@@ -6,6 +6,7 @@ import pl.project.promanage.user.worker.Worker;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Set;
 
 @Service
 public class ProjectService {
@@ -26,15 +27,28 @@ public class ProjectService {
     public Project getProject(Long id){
         return projectRepository.findById(id).orElse(null);
     }
-
-    public List<Project> getUserProjects(long uId) { return projectRepository.getUserProjects(uId); }
+//
+//    public List<Project> getUserProjects(long uId) { return projectRepository.getUserProjects(uId); }
 
     public List<Project> getClientProjects(long uId) { return projectRepository.getClientProjects(uId); }
 
 //    public List<Worker> getWorkerProjects(long uId) { return projectRepository.getWorkerProjects(uId); }
 
     public void addProject(Project project){
-        projectRepository.save(project);
+
+        Set<Long> tmp = project.getWorkerIds();
+        project.setWorkerIds(null);
+
+        Project p = projectRepository.save(project);
+
+        Long id = p.getId();
+
+        for (Long uId : tmp){
+            projectRepository.updateProjectWorkerTable(id, uId );
+        }
+
+
+
     }
 
     public void updateProject(Project project){

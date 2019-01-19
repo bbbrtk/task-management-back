@@ -17,15 +17,11 @@ public class Development extends Task {
     @Nullable
     private String connectedTo;
 
-    @Nullable
-    private String description;
-
     public Development(){}
 
-    public Development(String name, float state, String attachment, Timestamp deadline, Project myProject, User myUser, @Nullable String connectedTo, @Nullable String description) {
-        super(name, state, attachment, deadline, myProject, myUser);
+    public Development(String name, float state, Timestamp deadline, Project myProject, User myUser, @Nullable String connectedTo, String description, float duration) {
+        super(name, state, deadline, myProject, myUser, description, duration);
         this.connectedTo = connectedTo;
-        this.description = description;
     }
 
     public String getConnectedTo() {
@@ -34,14 +30,6 @@ public class Development extends Task {
 
     public void setConnectedTo(String connectedTo) {
         this.connectedTo = connectedTo;
-    }
-
-    public String getDescription() {
-        return description;
-    }
-
-    public void setDescription(String description) {
-        this.description = description;
     }
 }
 

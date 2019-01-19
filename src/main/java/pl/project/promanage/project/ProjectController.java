@@ -24,10 +24,10 @@ public class ProjectController {
         return projectService.getAllProjects();
     }
 
-    @GetMapping("projects/user-{uId}")
-    public List<Project> getUserProjects(@PathVariable String uId){
-        return projectService.getUserProjects(Long.parseLong(uId));
-    }
+//    @GetMapping("projects/user-{uId}")
+//    public List<Project> getUserProjects(@PathVariable String uId){
+//        return projectService.getUserProjects(Long.parseLong(uId));
+//    }
 
     @GetMapping("projects/client-{uId}")
     public List<Project> getClientProjects(@PathVariable String uId){

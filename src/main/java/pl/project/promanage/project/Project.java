@@ -1,5 +1,7 @@
 package pl.project.promanage.project;
 
+import org.hibernate.annotations.Fetch;
+import org.hibernate.annotations.FetchMode;
 import org.springframework.lang.Nullable;
 import pl.project.promanage.client.Client;
 import pl.project.promanage.user.worker.Worker;
@@ -26,30 +28,27 @@ public class Project {
     @ManyToOne(cascade = CascadeType.MERGE)
     private Client myClient;
 
-    @Nullable
-    @ManyToOne
-    private Manager myManager;
-
-    @Nullable
-    @ManyToMany(fetch = FetchType.LAZY,
-            cascade = {
+//    @ManyToMany(fetch = FetchType.LAZY,
+//            cascade = {
 //                    CascadeType.PERSIST,
-                    CascadeType.MERGE
-            })
-    @JoinTable(name = "projects_workers",
-            joinColumns = { @JoinColumn(name = "project_id") },
-            inverseJoinColumns = { @JoinColumn(name = "worker_id") })
-    private Set<Worker> workers = new HashSet<>();
+//                    CascadeType.MERGE
+//            },
+//            mappedBy = "projects")
+//    private Set<Worker> workers = new HashSet<>();
+
+    @ElementCollection(fetch = FetchType.EAGER)
+    @CollectionTable(name = "projects_workers", joinColumns = @JoinColumn(name = "worker_id"))
+    @Column(insertable = false, updatable = false, name = "project_id")
+    @Fetch(FetchMode.SELECT)
+    private Set<Long> workerIds;
 
 
     public  Project(){};
 
-    public Project(String name, float duration, @Nullable Client myClient, @Nullable Manager myManager, @Nullable Set<Worker> workers) {
+    public Project(String name, float duration, Client myClient) {
         this.name = name;
         this.duration = duration;
         this.myClient = myClient;
-        this.myManager = myManager;
-        this.workers = workers;
     }
 
     public Long getId() {
@@ -72,29 +71,19 @@ public class Project {
         this.duration = duration;
     }
 
-    @Nullable
     public Client getMyClient() {
         return myClient;
     }
 
-    public void setMyClient(@Nullable Client myClient) {
+    public void setMyClient(Client myClient) {
         this.myClient = myClient;
     }
 
-    @Nullable
-    public Set<Worker> getWorkers() {
-        return workers;
+    public Set<Long> getWorkerIds() {
+        return workerIds;
     }
 
-    public void setWorkers(@Nullable Set<Worker> workers) {
-        this.workers = workers;
-    }
-
-    public Manager getMyManager() {
-        return myManager;
-    }
-
-    public void setMyManager(Manager myManager) {
-        this.myManager = myManager;
+    public void setWorkerIds(Set<Long> workerIds) {
+        this.workerIds = workerIds;
     }
 }

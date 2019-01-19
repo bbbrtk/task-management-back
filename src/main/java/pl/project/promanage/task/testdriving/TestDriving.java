@@ -18,15 +18,12 @@ public class TestDriving extends Task {
     @Nullable
     private float testScore;
 
-    @Nullable
-    private String description;
 
     public TestDriving(){}
 
-    public TestDriving(String name, float state, String attachment, Timestamp deadline, Project myProject, User myUser, float testScore, @Nullable String description) {
-        super(name, state, attachment, deadline, myProject, myUser);
+    public TestDriving(String name, float state, Timestamp deadline, Project myProject, User myUser, float testScore, String description, float duration) {
+        super(name, state, deadline, myProject, myUser, description, duration);
         this.testScore = testScore;
-        this.description = description;
     }
 
     public float getTestScore() {
@@ -37,11 +34,4 @@ public class TestDriving extends Task {
         this.testScore = testScore;
     }
 
-    public String getDescription() {
-        return description;
-    }
-
-    public void setDescription(String description) {
-        this.description = description;
-    }
 }

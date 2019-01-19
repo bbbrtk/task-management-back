@@ -14,15 +14,12 @@ public class Meeting extends Task {
 
     @Nullable
     private String place;
-    @Nullable
-    private String topic;
 
     public Meeting(){}
 
-    public Meeting(String name, float state, String attachment, Timestamp deadline, Project myProject, User myUser, @Nullable String place, @Nullable String topic) {
-        super(name, state, attachment, deadline, myProject, myUser);
+    public Meeting(String name, float state,  Timestamp deadline, Project myProject, User myUser, @Nullable String place, String description, float duration) {
+        super(name, state,deadline, myProject, myUser, description, duration);
         this.place = place;
-        this.topic = topic;
     }
 
     public String getPlace() {
@@ -31,13 +28,5 @@ public class Meeting extends Task {
 
     public void setPlace(String place) {
         this.place = place;
-    }
-
-    public String getTopic() {
-        return topic;
-    }
-
-    public void setTopic(String topic) {
-        this.topic = topic;
     }
 }

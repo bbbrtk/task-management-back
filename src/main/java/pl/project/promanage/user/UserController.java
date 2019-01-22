@@ -2,6 +2,7 @@ package pl.project.promanage.user;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
+import pl.project.promanage.task.Task;
 import pl.project.promanage.team.Team;
 
 import java.util.List;
@@ -27,6 +28,11 @@ public class UserController {
     @GetMapping("/users/{id}/myteam")
     public Team getTeam(@PathVariable Long id){
         return userService.getTeam(id);
+    }
+
+    @GetMapping("/users/{id}/tasks")
+    public List<Task> getHomeCardTasks(@PathVariable Long id){
+        return userService.getHomeCardTasks(id);
     }
 
     @PutMapping("/users/{id}")

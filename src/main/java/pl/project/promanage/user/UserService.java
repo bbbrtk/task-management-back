@@ -2,6 +2,7 @@ package pl.project.promanage.user;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import pl.project.promanage.task.Task;
 import pl.project.promanage.team.Team;
 import pl.project.promanage.user.customer.CustomerRepository;
 import pl.project.promanage.user.worker.WorkerRepository;
@@ -34,6 +35,10 @@ public class UserService {
 
     public Team getTeam(Long id){
         return userRepository.getTeam(id);
+    }
+
+    public List<Task> getHomeCardTasks(Long id) {
+        return userRepository.getTopTasks(id);
     }
 
     public void addUser(User user){
